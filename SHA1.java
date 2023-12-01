@@ -3,6 +3,8 @@
  */
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.time.Duration;
+import java.time.Instant;
 import java.util.Scanner;
 public class SHA1 {
 
@@ -11,11 +13,17 @@ public class SHA1 {
             System.out.println("Enter text to hash : ");
             String plainText = sc.nextLine();
 
+            Instant startTime = Instant.now();
 
             MessageDigest md =  MessageDigest.getInstance("SHA-256");
             byte[] hash = md.digest(plainText.getBytes());
 
+            Instant endTime = Instant.now();
+
             System.out.println("Hashed Text using SHA-256 : " + bytesToHex(hash));
+            
+            long elapsedTime = Duration.between(startTime, endTime).toMillis();
+            System.out.println("Time to generate the hash is : " +elapsedTime+"ms");
         }
     }
     
