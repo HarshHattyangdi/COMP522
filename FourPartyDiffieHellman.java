@@ -61,7 +61,7 @@ public class FourPartyDiffieHellman {
         //Phase1 Bob shares key to Carol
         Key bc = bobKeyAgree.doPhase(carolKpair.getPublic(), false);
 
-        //Phase1 Carol shares key to Alice
+        //Phase1 Carol shares key to Dave
         Key cd = carolKeyAgree.doPhase(daveKpair.getPublic(), false);
 
         //Phase1 Dave shares key to Alice
@@ -85,25 +85,6 @@ public class FourPartyDiffieHellman {
         bobKeyAgree.doPhase(abc, true);
         carolKeyAgree.doPhase(bcd, true);
         daveKeyAgree.doPhase(cda, true);
-
-
-        //Phase 4 Dave shares key to everyone
-        // Key __d2a = daveKeyAgree.doPhase(aliceKpair.getPublic(), false);
-        // Key __a2b = aliceKeyAgree.doPhase(__d2a, false);
-        // Key __b2c = bobKeyAgree.doPhase(__a2b, false);
-        
-
-        //Final phase
-        // daveKeyAgree.doPhase(c2d, true);
-        // aliceKeyAgree.doPhase(c2a, true);
-        // bobKeyAgree.doPhase(_a2b, true);
-        // carolKeyAgree.doPhase(b2c, true);
-        //Final phase
-        // aliceKeyAgree.doPhase(c2a, true);
-        // bobKeyAgree.doPhase(_a2b, true);
-        // carolKeyAgree.doPhase(b2c, true);
-
-
 
         // Alice, Bob, and Carol compute their secrets
         byte[] aliceSharedSecret = aliceKeyAgree.generateSecret();
