@@ -1,3 +1,5 @@
 *.class
 SHA1.class
 .Rproj.user
+.R*
+*.png

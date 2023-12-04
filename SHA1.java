@@ -6,6 +6,8 @@ import java.security.NoSuchAlgorithmException;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.Scanner;
+
+//Based on code from LAB4, and modified to get elapsed time 
 public class SHA1 {
 
     public static void main(String[] args) throws NoSuchAlgorithmException{
